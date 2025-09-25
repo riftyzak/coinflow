@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>Coinflow – Nakupuj a utrácej krypto</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .animate-slideUp {
+      animation: slideUp 0.8s ease-out both;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .delay-150 { animation-delay: 0.15s; }
+    .delay-300 { animation-delay: 0.3s; }
+
+    .glow-white {
+    text-shadow: 0 0 20px #fff, 0 0 20px #fff;
+  }
+
+  .glow-purple {
+    text-shadow: 0 0 8px #a855f7, 0 0 16px #7e22ce;
+  }
+
+  .glow-purple-box {
+    box-shadow: 0 0 10px #a855f7, 0 0 20px #7e22ce, 0 0 30px #6d28d9;
+  }
+  
+  .glow-white-box {
+  box-shadow: 0 0 10px #fff, 0 0 20px #e5e7eb, 0 0 30px #d1d5db;
+  }
+
+  </style>
+</head>
+<body class="font-sans text-slate-800">
+
+  <!-- HERO -->
+  <section class="bg-gradient-to-br from-indigo-600 to-purple-600 text-white py-20">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight animate-slideUp glow-white">
+        Nakupuj a utrácej krypto stejně snadno jako koruny
+      </h1>
+      <p class="mt-6 text-lg animate-slideUp delay-150">
+        S Coinflow si můžeš koupit i utratit krypto během pár minut.  
+        Rychlá registrace přes BankID, okamžité CZK vklady a nejnižší poplatky – bez složitostí.
+      </p>
+      <a href="/register" class="mt-8 inline-block px-8 py-4 bg-white text-indigo-600 font-semibold rounded-lg shadow hover:scale-105 transition animate-slideUp delay-300 glow-white">
+        Zaregistrovat se zdarma
+      </a>
+    </div>
+  </section>
+
+<!-- CRYPTO PRICES -->
+<section class="py-12 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-2xl font-bold mb-6">Kurzy kryptoměn</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-slideUp">
+      
+      <!-- Bitcoin -->
+      <div class="p-4 bg-slate-50 rounded-xl shadow hover:shadow-lg transition flex items-center gap-4">
+        <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1.png" alt="Bitcoin" class="w-10 h-10 rounded-full">
+        <div class="flex-1">
+          <div class="flex justify-between">
+            <span class="font-semibold">Bitcoin (BTC)</span>
+            <span class="text-red-600">-1.57%</span>
+          </div>
+          <p class="text-xl font-bold">2 321 788 Kč</p>
+        </div>
+      </div>
+
+      <!-- Solana -->
+      <div class="p-4 bg-slate-50 rounded-xl shadow hover:shadow-lg transition flex items-center gap-4">
+        <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png" alt="XRP" class="w-10 h-10 rounded-full">
+        <div class="flex-1">
+          <div class="flex justify-between">
+            <span class="font-semibold">Solana (SOL)</span>
+            <span class="text-red-600">-6.09%</span>
+          </div>
+          <p class="text-xl font-bold">4 168 Kč</p>
+        </div>
+      </div>
+
+      <!-- Ethereum -->
+      <div class="p-4 bg-slate-50 rounded-xl shadow hover:shadow-lg transition flex items-center gap-4">
+        <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png" alt="Ethereum" class="w-10 h-10 rounded-full">
+        <div class="flex-1">
+          <div class="flex justify-between">
+            <span class="font-semibold">Ethereum (ETH)</span>
+            <span class="text-green-600">+0.84%</span>
+          </div>
+          <p class="text-xl font-bold">72 450 Kč</p>
+        </div>
+      </div>
+
+      <!-- Ripple -->
+      <div class="p-4 bg-slate-50 rounded-xl shadow hover:shadow-lg transition flex items-center gap-4">
+        <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/52.png" alt="XRP" class="w-10 h-10 rounded-full">
+        <div class="flex-1">
+          <div class="flex justify-between">
+            <span class="font-semibold">Ripple (XRP)</span>
+            <span class="text-red-600">-4.21%</span>
+          </div>
+          <p class="text-xl font-bold">58 Kč</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="mt-6 text-right">
+      <a href="#" class="text-indigo-600 hover:underline">Zobrazit všechny měny →</a>
+    </div>
+  </div>
+</section>
+
+  <!-- PROBLEM -->
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h2 class="text-2xl font-bold mb-6">Už tě štvou vysoké poplatky a pomalé převody?</h2>
+      <p class="text-lg text-slate-600">
+        Bankovní převody trvají dny. Poplatky ti ukusují z každého obchodu. Registrace u velkých platforem je na týdny.  
+        Přitom ty chceš jen levně a hned nakoupit krypto a mít je kdykoli k dispozici.
+      </p>
+    </div>
+  </section>
+
+<!-- BENEFITY -->
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8 text-center">
+    
+    <div class="p-6 rounded-xl shadow bg-slate-50 hover:scale-105 transition animate-slideUp">
+      <i class="fa-solid fa-flag text-indigo-600 text-4xl mb-4"></i>
+      <h3 class="font-bold text-xl mb-2">Česká firma</h3>
+      <p>Jsme český startup a podporujeme lokální uživatele. Registrace i podpora kompletně v češtině.</p>
+    </div>
+
+    <div class="p-6 rounded-xl shadow bg-slate-50 hover:scale-105 transition animate-slideUp delay-150">
+      <i class="fa-solid fa-percent text-indigo-600 text-4xl mb-4"></i>
+      <h3 class="font-bold text-xl mb-2">Nejnižší poplatky</h3>
+      <p>Za CZK obchoduješ levněji než kdekoli jinde. Naše fee jsou transparentní a férové.</p>
+    </div>
+
+    <div class="p-6 rounded-xl shadow bg-slate-50 hover:scale-105 transition animate-slideUp delay-300">
+      <i class="fa-solid fa-bolt text-indigo-600 text-4xl mb-4"></i>
+      <h3 class="font-bold text-xl mb-2">Okamžité vklady</h3>
+      <p>Peníze máš k dispozici během pár sekund – i v noci nebo o víkendu.</p>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- MAIN VALUE -->
+  <section class="py-20 bg-slate-100">
+    <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-3xl font-bold mb-4">Coinflow: tvoje česká zkratka do světa krypta</h2>
+        <p class="text-slate-600 mb-6">
+          Stačí pár kliknutí přes BankID a můžeš obchodovat i utrácet krypto v reálném čase.  
+          Okamžité CZK vklady, chytrá česká podpora a Coinflow Visa karta, se kterou zaplatíš kdekoli.
+        </p>
+      </div>
+      <div>
+        <img src="assets/otc-desk.png" class="rounded-lg shadow" alt="">
+      </div>
+    </div>
+  </section>
+
+    <!-- CTA -->
+  <section class="py-20 bg-gradient-to-br from-indigo-600 to-purple-600 text-white text-center">
+    <h2 class="text-3xl font-bold mb-4">Začni dnes a získej 250 Kč v Bitcoinu</h2>
+    <p class="mb-6">Po prvním nákupu tě odměníme. Nečekej na zítřek – tvé krypto může růst už teď.</p>
+    <a href="#" class="px-8 py-4 bg-white text-indigo-600 font-semibold rounded-lg shadow hover:scale-105 transition">
+      Zaregistrovat se zdarma
+    </a>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12">
+      <div class="text-center">
+        <img src="assets/coins.webp" class="mx-auto mb-4" width="150" height="150">
+        <h3 class="font-bold text-lg">Nízké poplatky</h3>
+        <p>Plať nejnižší CZK poplatky na trhu – každý obchod tě stojí míň.</p>
+      </div>
+      <div class="text-center">
+        <img src="assets/transfer.png" class="mx-auto mb-4" width="150" height="150">
+        <h3 class="font-bold text-lg">Okamžité převody 24/7</h3>
+        <p>Vklady i výběry z českých bank proběhnou okamžitě, i o víkendu.</p>
+      </div>
+      <div class="text-center">
+        <img src="assets/vacard.png" class="mx-auto mb-4" width="175" height="150">
+        <h3 class="font-bold text-lg">Karta na krypto i koruny</h3>
+        <p>Coinflow Visa debetka bere peníze rovnou z tvého krypto účtu.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUMBERS -->
+  <section class="py-20 bg-slate-100">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8 text-center">
+      <div>
+        <p class="text-4xl font-bold text-indigo-600">2025</p>
+        <p class="mt-2 text-slate-600">Rok založení Coinflow</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-indigo-600">100+ mil.</p>
+        <p class="mt-2 text-slate-600">Objem obchodů v CZK</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold text-indigo-600">50 000+</p>
+        <p class="mt-2 text-slate-600">Spokojených uživatelů</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- NEWSLETTER -->
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-2xl font-bold mb-4">Nenechte si nic utéct</h2>
+      <p class="text-slate-600 mb-6">Každý čtvrtek posíláme krypto novinky a analýzy v newsletteru Týden v kryptu.</p>
+      <form class="flex flex-col sm:flex-row gap-4 justify-center">
+        <input type="email" placeholder="E-mailová adresa"
+               class="flex-1 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-600 outline-none">
+        <button class="px-6 py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:scale-105 transition">
+          Odebírat
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-2xl font-bold text-center mb-12">Často kladené otázky</h2>
+      <div class="space-y-6">
+        <div>
+          <h3 class="font-semibold">Je registrace opravdu tak rychlá?</h3>
+          <p>Ano. Přihlásíš se přes BankID a během pár minut můžeš nakupovat.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold">Jak je zajištěna bezpečnost mých kryptoměn?</h3>
+          <p>97 % prostředků držíme v offline cold storage a pravidelně děláme bezpečnostní audity.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold">Potřebuji platební kartu?</h3>
+          <p>Ne. Pokud chceš jen obchodovat, stačí BankID a CZK účet. Coinflow Visa kartu si můžeš kdykoli objednat navíc.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- FOOTER -->
+<footer class="bg-slate-900 text-slate-400 py-12">
+  <div class="max-w-4xl mx-auto text-center space-y-8">
+    
+    <div>
+      <h3 class="font-semibold text-white mb-4">Coinflow</h3>
+      <p>První česká platforma, kde nakoupíš a utratíš krypto stejně snadno jako koruny.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <h3 class="font-semibold text-white mb-4">Služby</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-white">Registrace</a></li>
+          <li><a href="#" class="hover:text-white">Nákup a prodej</a></li>
+          <li><a href="#" class="hover:text-white">Coinflow karta</a></li>
+          <li><a href="#" class="hover:text-white">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-white mb-4">O nás</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-white">Kdo jsme</a></li>
+          <li><a href="#" class="hover:text-white">Kariéra</a></li>
+          <li><a href="#" class="hover:text-white">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 text-center text-slate-500 text-sm">
+      © 2025 Coinflow. Všechna práva vyhrazena.
+    </div>
+  </div>
+</footer>
+</body>
+</html>
