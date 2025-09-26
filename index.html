@@ -53,66 +53,22 @@
     </div>
   </section>
 
-<!-- CRYPTO PRICES -->
-<section class="py-12 bg-white">
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-2xl font-bold mb-6">Kurzy kryptoměn</h2>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-slideUp">
-      
-      <!-- Bitcoin -->
-      <div class="p-4 bg-slate-50 rounded-xl shadow hover:shadow-lg transition flex items-center gap-4">
-        <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1.png" alt="Bitcoin" class="w-10 h-10 rounded-full">
-        <div class="flex-1">
-          <div class="flex justify-between">
-            <span class="font-semibold">Bitcoin (BTC)</span>
-            <span class="text-red-600">-1.57%</span>
-          </div>
-          <p class="text-xl font-bold">2 321 788 Kč</p>
-        </div>
-      </div>
 
-      <!-- Solana -->
-      <div class="p-4 bg-slate-50 rounded-xl shadow hover:shadow-lg transition flex items-center gap-4">
-        <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png" alt="XRP" class="w-10 h-10 rounded-full">
-        <div class="flex-1">
-          <div class="flex justify-between">
-            <span class="font-semibold">Solana (SOL)</span>
-            <span class="text-red-600">-6.09%</span>
-          </div>
-          <p class="text-xl font-bold">4 168 Kč</p>
-        </div>
-      </div>
+  <!-- CRYPTO RATES -->
+  <section class="py-12 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-2xl font-bold mb-6">Kurzy kryptoměn</h2>
 
-      <!-- Ethereum -->
-      <div class="p-4 bg-slate-50 rounded-xl shadow hover:shadow-lg transition flex items-center gap-4">
-        <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png" alt="Ethereum" class="w-10 h-10 rounded-full">
-        <div class="flex-1">
-          <div class="flex justify-between">
-            <span class="font-semibold">Ethereum (ETH)</span>
-            <span class="text-green-600">+0.84%</span>
-          </div>
-          <p class="text-xl font-bold">72 450 Kč</p>
-        </div>
-      </div>
+      <!-- Dynamic Crypto List -->
+      <div id="crypto-list" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-slideUp"></div>
 
-      <!-- Ripple -->
-      <div class="p-4 bg-slate-50 rounded-xl shadow hover:shadow-lg transition flex items-center gap-4">
-        <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/52.png" alt="XRP" class="w-10 h-10 rounded-full">
-        <div class="flex-1">
-          <div class="flex justify-between">
-            <span class="font-semibold">Ripple (XRP)</span>
-            <span class="text-red-600">-4.21%</span>
-          </div>
-          <p class="text-xl font-bold">58 Kč</p>
-        </div>
+      <div class="mt-6 text-right">
+        <button id="show-more" class="text-indigo-600 hover:underline">
+          Zobrazit všechny měny →
+        </button>
       </div>
-
     </div>
-    <div class="mt-6 text-right">
-      <a href="#" class="text-indigo-600 hover:underline">Zobrazit všechny měny →</a>
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- PROBLEM -->
   <section class="py-20 bg-slate-50">
@@ -286,5 +242,58 @@
     </div>
   </div>
 </footer>
+<script>
+  const cryptoList = document.getElementById("crypto-list");
+  const showMoreBtn = document.getElementById("show-more");
+
+  let coins = [];
+  let showingAll = false;
+
+  async function fetchCrypto() {
+    try {
+      const res = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=czk&order=market_cap_desc&per_page=50&page=1&sparkline=false");
+      coins = await res.json();
+      renderCrypto();
+    } catch (err) {
+      console.error("Chyba při načítání kryptoměn", err);
+    }
+  }
+
+  function renderCrypto() {
+    cryptoList.innerHTML = "";
+    const displayCoins = showingAll ? coins : coins.slice(0, 4);
+
+    displayCoins.forEach(coin => {
+      const priceChange = coin.price_change_percentage_24h?.toFixed(2) || 0;
+      const changeClass = priceChange >= 0 ? "text-green-600" : "text-red-600";
+
+      const card = `
+        <div class="p-4 bg-slate-50 rounded-xl shadow hover:shadow-lg transition flex items-center gap-4">
+          <img src="${coin.image}" alt="${coin.name}" class="w-10 h-10 rounded-full">
+          <div class="flex-1">
+            <div class="flex justify-between">
+              <span class="font-semibold">${coin.name} (${coin.symbol.toUpperCase()})</span>
+              <span class="${changeClass}">${priceChange}%</span>
+            </div>
+            <p class="text-xl font-bold">${coin.current_price.toLocaleString("cs-CZ")} Kč</p>
+          </div>
+        </div>
+      `;
+      cryptoList.insertAdjacentHTML("beforeend", card);
+    });
+  }
+
+  showMoreBtn.addEventListener("click", () => {
+    showingAll = !showingAll;
+    renderCrypto();
+    showMoreBtn.textContent = showingAll ? "Skrýt měny ↑" : "Zobrazit všechny měny →";
+  });
+
+  // Initial load
+  fetchCrypto();
+  // Refresh every 60s
+  setInterval(fetchCrypto, 60000);
+</script>
+
 </body>
 </html>
